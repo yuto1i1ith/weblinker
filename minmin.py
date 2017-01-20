@@ -51,7 +51,6 @@ def listandlist(alllist,nowlist):
 	alllistset=set(alllist)
 	nowlistset=set(nowlist)
 	match=list(alllistset & nowlistset)
-	#print(match)
 	return match
 
 
@@ -69,7 +68,6 @@ else:
 	url=input("come on -> ")
 
 
-#alllist=set({})
 
 print("----Attack URL----")
 print(url)
@@ -79,13 +77,11 @@ G.add_node(url)
 
 print("---- 1 ----")
 one=getinurl(url)
-#print(one)
 xone=listandlist(alllist,one)
 zone=list(filter(lambda x:x not in xone,one))
 alllist=alllist+zone
 alllist=list(set(alllist))
 print(alllist)
-#print(zone)
 
 for i in alllist:
 	G.add_node(i)
@@ -131,14 +127,7 @@ for com in set(partition.values()):
 	list_nodes=[nodes for nodes in partition.keys() if partition[nodes]==com]
 	nx.draw_networkx_nodes(G,pos,list_nodes,node_size=60,node_color=cm[com])
 
-
-#nx.draw_networkx_nodes(G,pos,node_size=50,node_color="w")
-#nx.draw_networkx_edges(G,pos,width=1)
-
 nx.draw_networkx_edges(G,pos)
-
-#plt.xticks([])
-#plt.yticks([])
 plt.show()
 
 
